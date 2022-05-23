@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+ session_start();
+ include('dbconnection.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,6 +59,39 @@
 				</div>
 			</form>
 		</div>
+	</div>
+	<div class="row">
+		<hr>
+		<?php
+			$query = "SHOW DATABASES";
+			// execute query
+			$exe_query = $conn->query($query);
+			?>
+			<table class="table table-bordered">
+				<tr>
+					<th>ID</th>
+					<th>Database Name</th>
+					<th colspan="2">More Actions</th>
+				</tr>
+			<?php
+			while ($rows = $exe_query->fetch_assoc()) {
+				 $i++;
+				?>
+					<tr>
+						<td><?php echo $i; ?></td>
+						<td><?php echo $rows['Database']; ?></td>
+						<td><a href="" class="btn btn-danger">
+						Drop</a>
+					   </td>
+						<td><a href="" class="btn btn-primary">Show Tables</a></td>
+					</tr>
+				<?php
+				
+			}
+
+		
+		?>
+		</table>
 	</div>
 </div>
 </body>
