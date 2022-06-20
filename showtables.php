@@ -43,7 +43,7 @@ if ($exe_query) {
 			<td><?php echo $i; ?></td>
 			<td><?php echo $tables[0];?></td>
 			<td><a href="">Drop</a></td>
-			<td><a href="">Describe</a></td>
+			<td><a href="describe.php?dbname=<?php echo $dbname;?>&tab_name=<?php echo $tables[0]; ?>">Describe</a></td>
 			<td><a href="">Browse</a></td>
 		</tr>
 	<?php
